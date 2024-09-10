@@ -1,33 +1,23 @@
 import { Recinto } from './Recinto';
+import { Animal } from './Animal';
 
 class RecintosZoo {
     
     constructor() {
         this.recintosViaveis = [];
-        this.recintos = [ new Recinto(["Savana"], 10), new Recinto(["Floresta"], 5), new Recinto(["Savana", "Rio"], 7), new Recinto(["Rio"], 8), new Recinto(["Savana"], 9)];
-        this.atualizaConformeDesafio();
-        this.animais = [Animal, quantidade];
+
+        this.recintos = [new Recinto(["Savana"], 10,[new Animal("Macaco", 1, "Herbívoro", 3)]),
+            new Recinto(["Floresta"], 5, []),
+            new Recinto(["Savana", "Rio"], 7, [new Animal("Gazela", 2, "Herbívoro", 1)]),
+            new Recinto(["Rio"], 8, []),
+            new Recinto(["Savana"], 9, [new Animal("Leão", 3, "Carnívoro",1)])];
+        
     }
 
     analisaRecintos(animal, quantidade) {
         var tamanho;
         let tipoAlimentacao;
         var bioma;
-
-        //      Recintos          espaço        Animais existentes
-        // 1	savana              10              3 macacos
-        // 2	floresta	        5               vazio
-        // 3	savana e rio	    7               1 gazela
-        // 4	rio	                8               vazio
-        // 5	savana	            9               1 leão
-
-        // Espécie	    tamanho	            bioma
-        // LEAO	            3	            savana
-        // LEOPARDO	        2	            savana
-        // CROCODILO	    3	            rio
-        // MACACO	        1	            savana ou floresta
-        // GAZELA	        2	            savana
-        // HIPOPOTAMO	    4	            savana ou rio
 
         switch (animal) {
             case "LEAO":
@@ -150,17 +140,6 @@ class RecintosZoo {
         var possiveisRecintos = [];
         
         return possiveisRecintos;
-    }
-
-    atualizaConformeDesafio() {
-        this.recintos[0]._tamanhoUtilizado = 3; // 3 macacos
-        this.recintos[0]._tipoAnimaisNoRecinto = "Herbívoro";
-        this.recintos[1]._tamanhoUtilizado = 0;
-        this.recintos[2]._tamanhoUtilizado = 2; // 1 gazela
-        this.recintos[2]._tipoAnimaisNoRecinto = "Herbívoro";
-        this.recintos[3]._tamanhoUtilizado = 0;
-        this.recintos[4]._tamanhoUtilizado = 3; // 1 leao
-        this.recintos[4]._tipoAnimaisNoRecinto = "Carnívoro";
     }
 
 }
