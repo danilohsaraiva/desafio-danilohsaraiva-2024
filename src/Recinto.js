@@ -2,6 +2,7 @@ import { Animal } from './Animal';
 
 
 class Recinto {
+    
     constructor(biomas, tamanhoTotal, animais ) {
         if (!Array.isArray(biomas)) {
             return {
@@ -19,6 +20,8 @@ class Recinto {
         this._tamanhoTotal = tamanhoTotal
         this._tamanhoUtilizado = 0;
     }
+
+    
     adicionaAnimal(animal, quantidade) {
         var validador = 0;
         if (!animal instanceof Animal) {
